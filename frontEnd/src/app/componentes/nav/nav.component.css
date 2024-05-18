@@ -1,0 +1,23 @@
+.encabezado {
+  background-color: rgb(255,255,255);
+  text-align: center;
+  padding: 14px 20px;
+  color: #53638A;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.responsive-img {
+  vertical-align: middle;
+}
+
+.texto{
+  display: inline;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 2em;
+}
+
+
+
