@@ -5,29 +5,35 @@
       <button>Agregar</button>
     </div>
     <div class="table-container">
+
       <table>
         <thead>
           <tr>
-            <th>Columna 1</th>
-            <th>Columna 2</th>
-            <th>Columna 3</th>
-            <!-- Agrega más encabezados de columna si es necesario -->
+            <th>Logo</th>
+            <th>Nombre del Producto</th>
+            <th>Descripción</th>
+            <th>Fecha de Liberación</th>
+            <th>Fecha de reestructuración</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let item of productosArray">
+            <td><img src="{{item.logo}}" alt></td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.date_release | date: 'dd/MM/yyyy'}}</td>
+            <td>{{item.date_revision | date: 'dd/MM/yyyy'}}</td>
+            <td>
+              opciones
+            </td>
             <!-- Agrega más celdas si es necesario -->
           </tr>
         </tbody>
       </table>
     </div>
     <div class="pieTabla">
-      <span>
-        Resultados
-      </span>
+      <span>Resultados</span>
       <select>
         <option value="5">5</option>
         <option value="10">10</option>
