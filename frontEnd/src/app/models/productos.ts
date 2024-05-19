@@ -1,5 +1,5 @@
 export class Productos{
-  id?: String;
+  id: String = '';
   name?: String;
   description?: String;
   logo?: String;
