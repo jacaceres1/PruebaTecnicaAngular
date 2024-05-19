@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './componentes/nav/nav.component';
 import { TableComponent } from './componentes/table/table.component';
 import { HttpClientModule} from "@angular/common/http";
+import { FormularioRegistroComponent } from './componentes/formulario-registro/formulario-registro.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    TableComponent
+    TableComponent,
+    FormularioRegistroComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+<div class="dialog-background" (click)="closeModal()">
+  <div class="dialog-content" (click)="$event.stopPropagation()">
+    <form >
+      <label for="">ID</label>
+      <input type="text">
+
+      <label for="">Nombre</label>
+      <input type="text">
+
+      <label for="">Descripción</label>
+      <input type="text">
+
+      <label for="">Logo</label>
+      <input type="text">
+
+      <label for="">Fecha Liberación</label>
+      <input type="date">
+
+      <label for="">Fecha Revisión</label>
+      <input type="date" name="" id="">
+    </form>
+    <h2>Custom Dialog</h2>
+    <p>Este es un diálogo personalizado.</p>
+    <button (click)="closeModal()">Cerrar</button>
+    <button>Enviar</button>
+  </div>
+</div>

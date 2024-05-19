@@ -22,4 +22,9 @@ export class ProductosService {
   getProductos(): Observable<Productos[]>{
     return this.http.get<Productos[]>(this.API_PRODUCTOS,{headers: this.headers});
   }
+
+  /*Crear un nuevo producto*/
+  postProducto(): Observable<Productos>{
+    return this.http.post<Productos>(this.API_PRODUCTOS,{headers: this.headers});
+  }
 }
