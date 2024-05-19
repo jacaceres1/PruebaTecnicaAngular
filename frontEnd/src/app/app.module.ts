@@ -9,12 +9,14 @@ import { HttpClientModule} from "@angular/common/http";
 import { FormularioRegistroComponent } from './componentes/formulario-registro/formulario-registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Productos } from './models/productos';
+import { VentanaEmergenteComponent } from './componentes/ventana-emergente/ventana-emergente.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     TableComponent,
-    FormularioRegistroComponent
+    FormularioRegistroComponent,
+    VentanaEmergenteComponent
   ],
   imports: [
     BrowserModule,
