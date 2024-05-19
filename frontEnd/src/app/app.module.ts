@@ -7,6 +7,8 @@ import { NavComponent } from './componentes/nav/nav.component';
 import { TableComponent } from './componentes/table/table.component';
 import { HttpClientModule} from "@angular/common/http";
 import { FormularioRegistroComponent } from './componentes/formulario-registro/formulario-registro.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Productos } from './models/productos';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +20,11 @@ import { FormularioRegistroComponent } from './componentes/formulario-registro/f
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    Productos
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

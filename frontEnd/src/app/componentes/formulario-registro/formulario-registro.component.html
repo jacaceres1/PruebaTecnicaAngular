@@ -1,27 +1,38 @@
-<div class="dialog-background" (click)="closeModal()">
-  <div class="dialog-content" (click)="$event.stopPropagation()">
-    <form >
-      <label for="">ID</label>
-      <input type="text">
+<div class="dialog-background">
+  <div class="dialog-content">
+    <button (click)="closeModal()"  class="close-button">X</button>
+    <h2 class="dialog-title">Formulario de Registro</h2>
+    <hr class="dialog-separator">
+    <form class="dialog-form" [formGroup]="agregarProductoForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-column">
 
-      <label for="">Nombre</label>
-      <input type="text">
+          <label for="id">ID</label>
+          <input type="text" formControlName="id" >
 
-      <label for="">Descripción</label>
-      <input type="text">
 
-      <label for="">Logo</label>
-      <input type="text">
 
-      <label for="">Fecha Liberación</label>
-      <input type="date">
+          <label for="nombre">Nombre</label>
+          <input type="text" formControlName="nombre">
 
-      <label for="">Fecha Revisión</label>
-      <input type="date" name="" id="">
+          <label for="descripcion">Descripción</label>
+          <input type="text" formControlName="descripcion">
+        </div>
+        <div class="form-column">
+          <label for="logo">Logo</label>
+          <input type="text" formControlName="logo">
+
+          <label for="fecha-liberacion">Fecha Liberación</label>
+          <input type="date" formControlName="fechaLiberacion">
+
+          <label for="fecha-revision">Fecha Revisión</label>
+          <input type="date" formControlName="fechaRevision">
+        </div>
+      </div>
+      <div class="separación">
+        <button (click)="resetForm()" class="cerrar">Reiniciar</button>
+        <button type="submit" class="enviar">Enviar</button>
+      </div>
     </form>
-    <h2>Custom Dialog</h2>
-    <p>Este es un diálogo personalizado.</p>
-    <button (click)="closeModal()">Cerrar</button>
-    <button>Enviar</button>
   </div>
 </div>
