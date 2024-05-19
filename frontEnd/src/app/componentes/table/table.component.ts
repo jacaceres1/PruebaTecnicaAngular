@@ -10,6 +10,9 @@ import { FormularioRegistroComponent } from '../formulario-registro/formulario-r
 })
 export class TableComponent implements OnInit {
   productosArray: Productos[] = [];
+  productosFiltrados: Productos[] = [];
+  cantidadMostrar = 5;
+  terminoBusqueda = '';
 
   constructor(private productServices: ProductosService) { }
 
@@ -17,9 +20,7 @@ export class TableComponent implements OnInit {
     this.obtenerProducts();
   }
 
-  ngAfterViewInit(): void {
 
-  }
   /*Funciones para extras*/
   formModal = false;
   openModal() {
@@ -35,10 +36,26 @@ export class TableComponent implements OnInit {
     this.productServices.getProductos().subscribe(
       (res: Productos[]) => {
         this.productosArray = res;
+        this.productosFiltrados = res;
         console.log('productos recuperados', this.productosArray)
       }, error => {
         console.error('Error al obtener los datos', error);
       });
   }
 
+  actualizarCantidadMostrar(event: any) {
+    this.cantidadMostrar = event.target.value;;
+  }
+
+  actualizarBusqueda(event: any){
+    this.terminoBusqueda = event.target.value.toLowerCase();
+    this.filtrarProductos();
+  }
+  filtrarProductos() {
+    this.productosFiltrados = this.productosArray.filter(producto =>
+      producto.name?.toLowerCase().includes(this.terminoBusqueda) ||
+      producto.description?.toLowerCase().includes(this.terminoBusqueda) ||
+      producto.description?.toLowerCase().includes(this.terminoBusqueda)
+    );
+  }
 }

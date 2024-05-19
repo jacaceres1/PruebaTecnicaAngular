@@ -1,7 +1,7 @@
 <div class="container">
   <div class="contenedor">
     <div class="funciones">
-      <input type="text" placeholder="Search...">
+      <input type="text" placeholder="Search..." (input)="actualizarBusqueda($event)">
       <button (click)="openModal()">Agregar</button>
     </div>
     <app-formulario-registro *ngIf="formModal"
@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of productosArray">
+          <tr *ngFor="let item of productosFiltrados.slice(0, cantidadMostrar)">
             <td><img class="imagen-logo" src="{{item.logo}}" alt></td>
             <td>{{item.name}}</td>
             <td>{{item.description}}</td>
@@ -29,18 +29,16 @@
             <td>
               opciones
             </td>
-            <!-- Agrega más celdas si es necesario -->
           </tr>
         </tbody>
       </table>
     </div>
     <div class="pieTabla">
       <span> {{productosArray.length}} Resultados</span>
-      <select>
+      <select (change)="actualizarCantidadMostrar($event)">
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="15">20</option>
-        <!-- Agrega más opciones si es necesario -->
       </select>
     </div>
   </div>
