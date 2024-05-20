@@ -10,6 +10,7 @@ import { FormularioRegistroComponent } from './componentes/formulario-registro/f
 import { ReactiveFormsModule } from '@angular/forms';
 import { Productos } from './models/productos';
 import { VentanaEmergenteComponent } from './componentes/ventana-emergente/ventana-emergente.component';
+import { FormularioUpdateComponent } from './componentes/formulario-update/formulario-update.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { VentanaEmergenteComponent } from './componentes/ventana-emergente/venta
     TableComponent,
     FormularioRegistroComponent,
     VentanaEmergenteComponent,
+    FormularioUpdateComponent,
 
   ],
   imports: [

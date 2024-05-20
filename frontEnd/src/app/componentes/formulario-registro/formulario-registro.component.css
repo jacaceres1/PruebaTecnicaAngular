@@ -124,7 +124,7 @@ input:focus {
   background-color: rgb(245, 223, 102);
 }
 
-.error-message {
+.errorStyle {
   color: red;
   font-size: 14px;
 }

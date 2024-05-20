@@ -1,26 +1,88 @@
 <div class="dialog-background">
   <div class="dialog-content">
-    <button (click)="closeModal()"  class="close-button">X</button>
+    <button (click)="closeModal()" class="close-button">X</button>
     <h2 class="dialog-title">Formulario de Registro</h2>
     <hr class="dialog-separator">
-    <form class="dialog-form" [formGroup]="agregarProductoForm" (ngSubmit)="onSubmit()">
+    <form class="dialog-form" [formGroup]="agregarProductoForm"
+      (ngSubmit)="onSubmit()">
       <div class="form-row">
         <div class="form-column">
 
-          <label for="id">ID</label>
-          <input type="text" formControlName="id" >
+          <div>
+            <label for="id">ID</label>
+            <input type="text" formControlName="id">
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm.get('id')?.errors && (agregarProductoForm.get('id')?.dirty || agregarProductoForm.get('id')?.touched)">
+              <div *ngIf="agregarProductoForm.get('id')?.hasError('required')">
+                Este campo es requerido!.
+              </div>
+            </div>
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm?.get('id')?.hasError('minlength')">
+              El ID debe tener al menos 3 caracteres.
+            </div>
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm?.get('id')?.hasError('maxlength')">
+              El ID debe tener al menos 10 caracteres.
+            </div>
+            <div *ngIf="agregarProductoForm.get('id')?.hasError('idExists')" class="errorStyle">
+              El ID ya existe.
+            </div>
+          </div>
 
+          <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" formControlName="nombre">
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm.get('nombre')?.errors && (agregarProductoForm.get('nombre')?.dirty || agregarProductoForm.get('nombre')?.touched)">
+              <div
+                *ngIf="agregarProductoForm.get('nombre')?.hasError('required')">
+                Este campo es requerido!.
+              </div>
+            </div>
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm?.get('nombre')?.hasError('minlength')">
+              Este campo debe tener al menos 5 caracteres.
+            </div>
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm?.get('nombre')?.hasError('maxlength')">
+              Este campo debe tener al menos 100 caracteres.
+            </div>
+          </div>
 
+          <div>
+            <label for="descripcion">Descripción</label>
+            <input type="text" formControlName="descripcion">
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm.get('descripcion')?.errors && (agregarProductoForm.get('descripcion')?.dirty || agregarProductoForm.get('descripcion')?.touched)">
+              <div
+                *ngIf="agregarProductoForm.get('descripcion')?.hasError('required')">
+                Este campo es requerido!.
+              </div>
+            </div>
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm?.get('descripcion')?.hasError('minlength')">
+              Este campo debe tener al menos 10 caracteres.
+            </div>
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm?.get('descripcion')?.hasError('maxlength')">
+              Este campo debe tener al menos 200 caracteres.
+            </div>
+          </div>
 
-          <label for="nombre">Nombre</label>
-          <input type="text" formControlName="nombre">
-
-          <label for="descripcion">Descripción</label>
-          <input type="text" formControlName="descripcion">
         </div>
         <div class="form-column">
-          <label for="logo">Logo</label>
-          <input type="text" formControlName="logo">
+          <div>
+            <label for="logo">Logo</label>
+            <input type="text" formControlName="logo">
+            <div class="errorStyle"
+              *ngIf="agregarProductoForm.get('logo')?.errors && (agregarProductoForm.get('logo')?.dirty || agregarProductoForm.get('logo')?.touched)">
+              <div
+                *ngIf="agregarProductoForm.get('logo')?.hasError('required')">
+                Este campo es requerido!.
+              </div>
+            </div>
+          </div>
 
           <label for="fecha-liberacion">Fecha Liberación</label>
           <input type="date" formControlName="fechaLiberacion">
