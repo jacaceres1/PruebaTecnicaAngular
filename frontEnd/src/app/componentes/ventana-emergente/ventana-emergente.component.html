@@ -1,1 +1,8 @@
-<p>ventana-emergente works!</p>
+<div class="dialog-background">
+  <div class="dialog-content">
+    <h2 class="dialog-title">¿Estás seguro de eliminar el producto {{nombreProducto}}?</h2>
+    <hr class="dialog-separator">
+    <button (click)="cancelarEliminar()" class="cancelar">Cancelar</button>
+    <button (click)="confirmarEliminar()" class="eliminar">Eliminar</button>
+  </div>
+</div>

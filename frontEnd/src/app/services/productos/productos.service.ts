@@ -29,9 +29,9 @@ export class ProductosService {
   }
 
   /* Eliminar un producto por su id */
-  deleteProducto(id: string): Observable<any> {
+  deleteProducto(id: String): Observable<string> {
     const url = `${this.API_PRODUCTOS}?id=${id}`;
-    return this.http.delete(url, { headers: this.headers });
+    return this.http.delete(url, { headers: this.headers, responseType: 'text' });
   }
 
   /* Verificar si un ID existe */

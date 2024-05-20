@@ -16,7 +16,8 @@ import { VentanaEmergenteComponent } from './componentes/ventana-emergente/venta
     NavComponent,
     TableComponent,
     FormularioRegistroComponent,
-    VentanaEmergenteComponent
+    VentanaEmergenteComponent,
+
   ],
   imports: [
     BrowserModule,

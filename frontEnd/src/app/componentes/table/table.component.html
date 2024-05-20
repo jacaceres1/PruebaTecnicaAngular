@@ -7,6 +7,8 @@
     </div>
     <app-formulario-registro *ngIf="formModal"
       (closeDialog)="closeModal()"></app-formulario-registro>
+    <app-ventana-emergente [nombreProducto]="nombreProductoAEliminar" *ngIf="mostrarDialogoEliminar"
+      (confirmar)="confirmarEliminar($event)"></app-ventana-emergente>
     <div class="table-container">
 
       <table>
@@ -30,10 +32,11 @@
             <td>
               <div class="dropdown">
 
-                <button class="dropbtn"><img src="../../../assets/tres-puntos.png" alt=""></button>
+                <button class="dropbtn"><img
+                    src="../../../assets/tres-puntos.png" alt></button>
                 <div class="dropdown-content">
                   <a href="#" (click)="editarProducto(item.id)">Editar</a>
-                  <a href="#" (click)="eliminarProducto(item.id)">Eliminar</a>
+                  <a href="#" (click)="confirmarEliminarProducto(item.id, item.name)">Eliminar</a>
                 </div>
               </div>
             </td>
@@ -45,9 +48,11 @@
       <span>{{productosArray.length}} Resultados</span>
       <div class="paginacion-contenedor">
         <div class="paginacion">
-          <button (click)="paginaAnterior()" [disabled]="paginaActual === 1"><</button>
+          <button (click)="paginaAnterior()"
+            [disabled]="paginaActual === 1"><</button>
           <span>Página {{paginaActual}} de {{totalPaginas}}</span>
-          <button (click)="paginaSiguiente()" [disabled]="paginaActual === totalPaginas">></button>
+          <button (click)="paginaSiguiente()"
+            [disabled]="paginaActual === totalPaginas">></button>
         </div>
       </div>
       <select (change)="actualizarCantidadMostrar($event)">
