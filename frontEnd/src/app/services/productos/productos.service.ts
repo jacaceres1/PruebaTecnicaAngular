@@ -39,4 +39,10 @@ export class ProductosService {
     const url = `${this.API_PRODUCTOS}/verification?id=${id}`;
     return this.http.get<boolean>(url, { headers: this.headers });
   }
+
+  /*actualizar un dato*/
+  updateProducto(id: string, producto: Productos): Observable<Productos> {
+    const url = `${this.API_PRODUCTOS}?id=${id}`;
+    return this.http.put<Productos>(url, producto, { headers: this.headers });
+  }
 }

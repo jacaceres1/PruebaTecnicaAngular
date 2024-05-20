@@ -1,1 +1,82 @@
-<p>formulario-update works!</p>
+<div class="dialog-background">
+  <div class="dialog-content">
+    <button (click)="closeModal()" class="close-button">X</button>
+    <h2 class="dialog-title">Formulario de Actualización</h2>
+    <hr class="dialog-separator">
+    <form class="dialog-form" [formGroup]="actualizarProductoForm"
+      (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-column">
+
+          <div>
+            <label for="id">ID</label>
+            <input type="text" formControlName="id">
+          </div>
+
+          <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" formControlName="nombre">
+            <div class="errorStyle"
+              *ngIf="actualizarProductoForm.get('nombre')?.errors && (actualizarProductoForm.get('nombre')?.dirty || actualizarProductoForm.get('nombre')?.touched)">
+              <div
+                *ngIf="actualizarProductoForm.get('nombre')?.hasError('required')">
+                Este campo es requerido!.
+              </div>
+            </div>
+            <div class="errorStyle"
+              *ngIf="actualizarProductoForm?.get('nombre')?.hasError('minlength')">
+              Este campo debe tener al menos 5 caracteres.
+            </div>
+            <div class="errorStyle"
+              *ngIf="actualizarProductoForm?.get('nombre')?.hasError('maxlength')">
+              Este campo debe tener al menos 100 caracteres.
+            </div>
+          </div>
+
+          <div>
+            <label for="descripcion">Descripción</label>
+            <input type="text" formControlName="descripcion">
+            <div class="errorStyle"
+              *ngIf="actualizarProductoForm.get('descripcion')?.errors && (actualizarProductoForm.get('descripcion')?.dirty || actualizarProductoForm.get('descripcion')?.touched)">
+              <div
+                *ngIf="actualizarProductoForm.get('descripcion')?.hasError('required')">
+                Este campo es requerido!.
+              </div>
+            </div>
+            <div class="errorStyle"
+              *ngIf="actualizarProductoForm?.get('descripcion')?.hasError('minlength')">
+              Este campo debe tener al menos 10 caracteres.
+            </div>
+            <div class="errorStyle"
+              *ngIf="actualizarProductoForm?.get('descripcion')?.hasError('maxlength')">
+              Este campo debe tener al menos 200 caracteres.
+            </div>
+          </div>
+
+        </div>
+        <div class="form-column">
+          <div>
+            <label for="logo">Logo</label>
+            <input type="text" formControlName="logo">
+            <div class="errorStyle"
+              *ngIf="actualizarProductoForm.get('logo')?.errors && (actualizarProductoForm.get('logo')?.dirty || actualizarProductoForm.get('logo')?.touched)">
+              <div
+                *ngIf="actualizarProductoForm.get('logo')?.hasError('required')">
+                Este campo es requerido!.
+              </div>
+            </div>
+          </div>
+
+          <label for="fecha-liberacion">Fecha Liberación</label>
+          <input type="date" formControlName="fechaLiberacion">
+
+          <label for="fecha-revision">Fecha Revisión</label>
+          <input type="date" formControlName="fechaRevision">
+        </div>
+      </div>
+      <div class="separación">
+        <button type="submit" class="enviar">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
